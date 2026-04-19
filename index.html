@@ -2,27 +2,28 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<title>Sasha | Portfolio IT</title>
+<title>Sasha | IT & Cybersecurity Portfolio</title>
 
 <style>
 body {
   margin: 0;
   font-family: system-ui, Arial;
-  background: #060914;
+  background: #050814;
   color: #e5e7eb;
 }
 
-/* TOP BAR */
+/* HEADER */
 .topbar {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 15px 25px;
-  background: rgba(6,9,20,0.85);
-  backdrop-filter: blur(10px);
+  padding: 14px 25px;
+  background: rgba(8,10,20,0.75);
+  backdrop-filter: blur(14px);
   border-bottom: 1px solid #00d4ff22;
   display: flex;
   justify-content: space-between;
+  z-index: 1000;
 }
 
 .topbar span {
@@ -45,71 +46,115 @@ body {
   height: 150px;
   border-radius: 50%;
   border: 2px solid #00d4ff;
-  object-fit: cover;
-  background: #111;
+  box-shadow: 0 0 25px #00d4ff22;
 }
 
 .hero h1 {
-  font-size: 44px;
-  color: #00d4ff;
+  font-size: 50px;
   margin: 20px 0 10px;
+  color: #00d4ff;
 }
 
 .hero p {
-  max-width: 750px;
-  color: #a3a3a3;
+  max-width: 700px;
+  color: #b0b0b0;
   line-height: 1.6;
 }
 
-/* SEZIONI */
+/* SECTIONS */
 section {
   max-width: 1000px;
   margin: auto;
-  padding: 90px 20px;
+  padding: 80px 20px;
 }
 
 h2 {
   color: #00d4ff;
+  font-size: 22px;
   margin-bottom: 20px;
+  border-left: 3px solid #00d4ff;
+  padding-left: 10px;
 }
 
 /* CARD */
 .card {
   background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(0,212,255,0.15);
-  padding: 18px;
+  border: 1px solid rgba(0,212,255,0.12);
+  padding: 16px;
   border-radius: 12px;
+  margin: 10px 0;
+  transition: 0.2s;
+}
+
+.card:hover {
+  border-color: #00d4ff55;
+  transform: translateY(-2px);
+}
+
+/* SKILL BARS */
+.skill {
   margin: 12px 0;
+}
+
+.skill-name {
+  font-size: 14px;
+  color: #cfcfcf;
+  margin-bottom: 5px;
+}
+
+.bar {
+  height: 7px;
+  background: #0f162d;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00d4ff, #0057ff);
+  width: 0%;
+  animation: load 1.4s forwards;
+}
+
+@keyframes load {
+  to { width: var(--w); }
 }
 
 /* GRID */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 15px;
 }
 
-/* PLACEHOLDER FOTO */
+/* PLACEHOLDER */
 .photo {
   width: 100%;
-  height: 220px;
-  background: rgba(0,212,255,0.05);
-  border: 1px dashed #00d4ff55;
+  height: 200px;
+  background: rgba(0,212,255,0.03);
+  border: 1px dashed #00d4ff33;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #777;
+  color: #666;
 }
 
-/* CONTATTI */
+/* CONTACT */
 .contact {
   text-align: center;
   padding: 80px 20px;
   border-top: 1px solid #00d4ff22;
 }
 
-a { color: #00d4ff; text-decoration: none; }
+a {
+  color: #00d4ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-shadow: 0 0 8px #00d4ff55;
+}
 </style>
 
 </head>
@@ -117,17 +162,17 @@ a { color: #00d4ff; text-decoration: none; }
 <body>
 
 <div class="topbar">
-  <span>Sasha | Portfolio IT</span>
-  <span>Networking & Cybersecurity</span>
+  <span>Sasha | Cybersecurity Portfolio</span>
+  <span>Network Engineering Path</span>
 </div>
 
 <!-- HERO -->
 <div class="hero">
-  <img src="img/profilo.jpg" alt="Foto profilo">
+  <img src="img/profilo.jpg">
   <h1>Sasha</h1>
   <p>
-    Aspirante Ingegnere di Rete e appassionato di Cybersecurity, con focus su infrastrutture di rete,
-    sistemi informatici e sicurezza delle informazioni. Percorso basato su studio e pratica continua.
+    Aspirante Ingegnere di Rete con focus su networking e cybersecurity.
+    Interesse nello studio di infrastrutture IT, protocolli di rete e sicurezza dei sistemi.
   </p>
 </div>
 
@@ -136,8 +181,7 @@ a { color: #00d4ff; text-decoration: none; }
   <h2>Profilo</h2>
   <div class="card">
     Studente in Informatica e Telecomunicazioni presso ITIS Alessandrini (diploma previsto a giugno).
-    Il mio percorso è orientato allo sviluppo di competenze pratiche nel networking e nella cybersecurity
-    attraverso studio e laboratori.
+    Percorso focalizzato su networking e sicurezza informatica con approccio pratico e laboratoriale.
   </div>
 </section>
 
@@ -145,26 +189,42 @@ a { color: #00d4ff; text-decoration: none; }
 <section>
   <h2>Competenze tecniche</h2>
 
-  <div class="grid">
-    <div class="card">TCP/IP</div>
-    <div class="card">DNS / DHCP</div>
-    <div class="card">Routing & Switching (base)</div>
-    <div class="card">LAN / WAN</div>
-    <div class="card">Linux base</div>
-    <div class="card">Cybersecurity fundamentals</div>
+  <div class="skill">
+    <div class="skill-name">TCP/IP</div>
+    <div class="bar"><div class="bar-fill" style="--w:85%"></div></div>
+  </div>
+
+  <div class="skill">
+    <div class="skill-name">DNS / DHCP</div>
+    <div class="bar"><div class="bar-fill" style="--w:80%"></div></div>
+  </div>
+
+  <div class="skill">
+    <div class="skill-name">Routing & Switching</div>
+    <div class="bar"><div class="bar-fill" style="--w:70%"></div></div>
+  </div>
+
+  <div class="skill">
+    <div class="skill-name">Linux</div>
+    <div class="bar"><div class="bar-fill" style="--w:65%"></div></div>
+  </div>
+
+  <div class="skill">
+    <div class="skill-name">Cybersecurity</div>
+    <div class="bar"><div class="bar-fill" style="--w:60%"></div></div>
   </div>
 </section>
 
-<!-- CERTIFICAZIONI -->
+<!-- FORMAZIONE -->
 <section>
-  <h2>Certificazioni e percorso</h2>
+  <h2>Percorso formativo</h2>
 
   <div class="card">
-    Cisco Networking Academy (NetAcad) – badge introduttivi networking
+    Cisco Networking Academy (NetAcad) – badge networking
   </div>
 
   <div class="card">
-    Studio continuo di reti e sicurezza informatica
+    Studio continuo su reti e sicurezza informatica
   </div>
 
   <div class="card">
@@ -176,9 +236,9 @@ a { color: #00d4ff; text-decoration: none; }
 <section>
   <h2>Progetti e laboratori</h2>
 
-  <div class="card">Laboratori con Packet Tracer</div>
-  <div class="card">Simulazioni di rete base</div>
-  <div class="card">Progetti scolastici IT</div>
+  <div class="card">Laboratori Packet Tracer</div>
+  <div class="card">Simulazioni reti LAN/WAN</div>
+  <div class="card">Attività scolastiche IT</div>
 </section>
 
 <!-- GALLERIA -->
@@ -197,10 +257,10 @@ a { color: #00d4ff; text-decoration: none; }
 <div class="contact">
   <h2>Contatti</h2>
 
-  <p>📧 Email: <a href="mailto:sasha.sorgetti.net@gmail.com">sasha.sorgetti.net@gmail.com</a></p>
-  <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/sasha-sorgetti-343b23400" target="_blank">Profilo LinkedIn</a></p>
-  <p>🧑‍💻 GitHub: <a href="https://github.com/sashanetwork" target="_blank">github.com/sashanetwork</a></p>
-  <p>📸 Instagram: <a href="https://www.instagram.com/sasha.network.05?igsh=MWEzbG9ldXJuazE2OQ==" target="_blank">@sasha.network.05</a></p>
+  <p>📧 <a href="mailto:sasha.sorgetti.net@gmail.com">Email</a></p>
+  <p>💼 <a href="https://www.linkedin.com/in/sasha-sorgetti-343b23400">LinkedIn</a></p>
+  <p>🧑‍💻 <a href="https://github.com/sashanetwork">GitHub</a></p>
+  <p>📸 <a href="https://www.instagram.com/sasha.network.05">Instagram</a></p>
 </div>
 
 </body>
